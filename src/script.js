@@ -18,6 +18,23 @@ sidebarContent.addEventListener("change", (event) => {
   toggleLayerItemClass(checkbox);
 });
 
+sidebarContent.addEventListener("click", (event) => {
+  const button = (event.target.closest("[data-button-type]") || event.target);
+  const buttonType = button.dataset.buttonType;
+  if (!buttonType) {
+    return;
+  }
+
+  if (buttonType === "visibility") {
+    toggleLayerVisibility(button);
+  }
+});
+
+function toggleLayerVisibility(button) {
+  const layer = button.closest(".layer__item");
+  layer.classList.toggle("layer__item--hidden");
+}
+
 function toggleLayerItemClass(checkbox) {
   const parent = checkbox.closest(".layer__item");
   parent.classList[checkbox.checked ? "add" : "remove"]("selected");

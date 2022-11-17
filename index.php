@@ -11,7 +11,7 @@
   <div class="sidebar expanded">
     <div class="sidebar__content">
       <ul class="layer__list">
-        <li class="layer__item">
+        <li class="layer__item layer__item--hidden">
           <div class="layer__checkbox-wrapper">
             <input type="checkbox" name="" id="" class="layer__checkbox checkbox">
           </div>
@@ -20,19 +20,22 @@
           </div>
           <div class="layer__title">Электропроводник</div>
           <div class="layer__controls">
-            <div class="layer__controls-btn">
+            <div class="layer__controls-btn" data-button-type="lock">
               <svg>
                 <use xlink:href="./public/svg/sprites.svg#lock" />
               </svg>
             </div>
-            <div class="layer__controls-btn">
-              <svg>
+            <div class="layer__controls-btn" data-button-type="visibility">
+              <svg class="layer__controls-btn--visible">
                 <use xlink:href="./public/svg/sprites.svg#eye"/>
+              </svg>
+              <svg class="layer__controls-btn--hidden">
+                <use xlink:href="./public/svg/sprites.svg#eye--hidden"/>
               </svg>
             </div>
           </div>
         </li>
-        <li class="layer__item">
+        <li class="layer__item layer__item--hidden">
           <div class="layer__checkbox-wrapper">
             <input type="checkbox" name="" id="" class="layer__checkbox checkbox">
           </div>
@@ -41,14 +44,17 @@
           </div>
           <div class="layer__title">Электропроводник</div>
           <div class="layer__controls">
-            <div class="layer__controls-btn">
+            <div class="layer__controls-btn" data-button-type="lock">
               <svg>
                 <use xlink:href="./public/svg/sprites.svg#lock" />
               </svg>
             </div>
-            <div class="layer__controls-btn">
-              <svg>
+            <div class="layer__controls-btn" data-button-type="visibility">
+              <svg class="layer__controls-btn--visible">
                 <use xlink:href="./public/svg/sprites.svg#eye"/>
+              </svg>
+              <svg class="layer__controls-btn--hidden">
+                <use xlink:href="./public/svg/sprites.svg#eye--hidden"/>
               </svg>
             </div>
           </div>

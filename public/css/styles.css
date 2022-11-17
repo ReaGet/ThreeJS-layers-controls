@@ -169,7 +169,22 @@
 .layer__controls-btn svg {
   height: inherit;
   width: inherit;
+}
+
+.layer__controls-btn--hidden {
+  display: none;
+  opacity: 0;
 } 
+
+.layer__item.layer__item--hidden .layer__controls-btn--visible {
+  display: none;
+  opacity: 0;
+}
+
+.layer__item.layer__item--hidden .layer__controls-btn--hidden {
+  display: block;
+  opacity: 1;
+}
 
 .layer__controls-btn + .layer__controls-btn {
   margin-top: 5px;
