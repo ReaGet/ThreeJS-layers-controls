@@ -235,3 +235,9 @@
   display: block;
   opacity: 1;
 }
+
+@media (max-width: 480px) {
+  .sidebar.expanded {
+    max-width: 420px;
+  }
+}
