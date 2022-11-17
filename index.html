@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./public/css/styles.css">
+</head>
+<body>
+  <div class="menu" data-mode="flip">
+    <div class="menu__header tabs">
+      <div class="tabs__item" data-mode="translate">
+        <img src="./public/img/direction.png" alt="">
+      </div>
+      <div class="tabs__item" data-mode="rotate">
+        <img src="./public/img/rotate.png" alt="">
+      </div>
+      <div class="tabs__item" data-mode="scale">
+        <img src="./public/img/scale.png" alt="">
+      </div>
+      <div class="tabs__item" data-mode="flip">
+        <img src="./public/img/flip.png" alt="">
+      </div>
+    </div>
+    <div class="content">
+      <label class="content__item" for="xAxis">
+        <div class="content__item-img"></div>
+        <input class="content__item-input" type="number" value="0" id="xAxis">
+      </label>
+      <label class="content__item" for="yAxis">
+        <div class="content__item-img"></div>
+        <input class="content__item-input" type="number" value="0" id="yAxis">
+      </label>
+      <label class="content__item" for="zAxis">
+        <div class="content__item-img"></div>
+        <input class="content__item-input" type="number" value="0" id="zAxis">
+      </label>
+    </div>
+  </div>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./src/build/three.module.js",
+        "three/addons/": "./src/addons/"
+      }
+    }
+  </script>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
