@@ -8,9 +8,30 @@
   <link rel="stylesheet" href="./public/css/styles.css">
 </head>
 <body>
-  <div class="sidebar">
+  <div class="sidebar expanded">
     <div class="sidebar__content">
       <ul class="layer__list">
+        <li class="layer__item">
+          <div class="layer__checkbox-wrapper">
+            <input type="checkbox" name="" id="" class="layer__checkbox checkbox">
+          </div>
+          <div class="layer__img-wrapper">
+            <img class="layer__img" src="./assets/textures/crate.gif" alt="#">
+          </div>
+          <div class="layer__title">Электропроводник</div>
+          <div class="layer__controls">
+            <div class="layer__controls-btn">
+              <svg>
+                <use xlink:href="./public/svg/sprites.svg#lock" />
+              </svg>
+            </div>
+            <div class="layer__controls-btn">
+              <svg>
+                <use xlink:href="./public/svg/sprites.svg#eye"/>
+              </svg>
+            </div>
+          </div>
+        </li>
         <li class="layer__item">
           <div class="layer__checkbox-wrapper">
             <input type="checkbox" name="" id="" class="layer__checkbox checkbox">
@@ -43,7 +64,8 @@
         <svg width="40" height="40">
           <use xlink:href="./public/svg/sprites.svg#arrow" />
         </svg>
-        Развернуть
+        <span class="sidebar__toggle-title sidebar__toggle-title--expand">Развернуть</span>
+        <span class="sidebar__toggle-title sidebar__toggle-title--collapse">Свернуть</span>
       </div>
     </div>
   </div>
