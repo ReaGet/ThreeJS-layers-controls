@@ -41,26 +41,6 @@ function init() {
   texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
   modelLoader = new GLTFLoader();
-  // let car = null;
-  // modelLoader.load(`./assets/car2/source/car.glb`, function (object) {
-  //   car = object.scene;
-  //   car.scale.set(200, 200, 200);
-  //   car.position.x = -290;
-  //   car.position.y = 0;
-  //   car.position.z = -320;
-
-  //   scene.add(car);
-  //   render();
-  // }, function (xhr) {
-  // }, function (error) {
-  //     console.log('error')
-  // });
-
-  getModelsData((data) => {
-    data.map((modelData) => {
-      loadModel(modelData.alias);
-    });
-  })
 
   orbit = new OrbitControls(currentCamera, renderer.domElement);
   orbit.update();
@@ -68,6 +48,14 @@ function init() {
 
   window.addEventListener('resize', onWindowResize);
 
+  // Делаем запрос на сервер для того, чтобы получить объекты
+  // Пробегаемся по массиву объектом и запускаем функцию подгрузки
+  getModelsData((data) => {
+    data.map((modelData) => {
+      loadModel(modelData);
+    });
+  });
+  // Инициализируем события для сайдбара и отлавиваем нажатие на глаз
   initSidebar((buttonType, layer) => {
     if (buttonType === "visibility") {
       const hidden = layer.classList.contains("layer__item--hidden");
@@ -82,7 +70,13 @@ function init() {
   })
 }
 
-function loadModel(alias) {
+// Создаем и загружает модель
+// Добавляет необходимые аттрибуты
+function loadModel(modelData) {
+  const alias = modelData.alias;
+  const layerId = modelData.layer_id;
+  const layer = document.querySelector(`.layer__item[data-id="${layerId}"]`);
+
   modelLoader.load(`./assets/${alias}/source/${alias}.glb`, function (object) {
     let model = object.scene;
     model.scale.set(200, 200, 200);
@@ -90,6 +84,7 @@ function loadModel(alias) {
     model.position.y = 0;
     model.position.z = Math.random() * 1000 - 500;
     model.name = alias;
+    model.visible = !layer.classList.contains("layer__item--hidden");
 
     scene.add(model);
     render();
