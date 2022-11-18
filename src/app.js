@@ -58,7 +58,7 @@ function init() {
 
   getModelsData((data) => {
     data.map((modelData) => {
-      loadModel(modelData.alias)
+      loadModel(modelData.alias);
     });
   })
 
@@ -73,7 +73,6 @@ function init() {
       const hidden = layer.classList.contains("layer__item--hidden");
       const names = layer.dataset.layerObjects.split(",");
       scene.children.forEach(child => {
-        console.log(child)
         if (names.includes(child.name)) {
           child.visible = !hidden;
         }

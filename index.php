@@ -11,7 +11,7 @@
     $layer_objects = implode(",", getObjectAliasesForLayer($layer_id));
 
     echo <<<LAYER__ITEM
-      <li class="layer__item" data-id="$layer_id" data-layer-objects="$layer_objects">
+      <li class="layer__item" data-layer-objects="$layer_objects">
         <div class="layer__checkbox-wrapper">
           <input type="checkbox" name="" id="" class="layer__checkbox checkbox">
         </div>
