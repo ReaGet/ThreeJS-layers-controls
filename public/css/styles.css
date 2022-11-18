@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+canvas {
+  /* display: none !important; */
+}
+
 .sidebar {
   width: 100%;
   max-width: 90px;

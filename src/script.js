@@ -18,17 +18,17 @@ sidebarContent.addEventListener("change", (event) => {
   toggleLayerItemClass(checkbox);
 });
 
-sidebarContent.addEventListener("click", (event) => {
-  const button = (event.target.closest("[data-button-type]") || event.target);
-  const buttonType = button.dataset.buttonType;
-  if (!buttonType) {
-    return;
-  }
+// sidebarContent.addEventListener("click", (event) => {
+//   const button = (event.target.closest("[data-button-type]") || event.target);
+//   const buttonType = button.dataset.buttonType;
+//   if (!buttonType) {
+//     return;
+//   }
 
-  if (buttonType === "visibility") {
-    toggleLayerVisibility(button);
-  }
-});
+//   if (buttonType === "visibility") {
+//     toggleLayerVisibility(button);
+//   }
+// });
 
 function toggleLayerVisibility(button) {
   const layer = button.closest(".layer__item");
@@ -46,4 +46,21 @@ function toggleLayersCheckboxes(value) {
     checkbox.checked = value;
     toggleLayerItemClass(checkbox);
   });
+}
+
+export function initSidebar(callback) {
+  sidebarContent.addEventListener("click", (event) => {
+    const button = (event.target.closest("[data-button-type]") || event.target);
+    const buttonType = button.dataset.buttonType;
+    if (!buttonType) {
+      return;
+    }
+  
+    if (buttonType === "visibility") {
+      toggleLayerVisibility(button);
+    }
+
+    callback(buttonType, button.closest(".layer__item"));
+  });
+
 }
